@@ -3376,7 +3376,7 @@ Mesh files no longer used:
 		<property name="Class" value="Ranged"/>
 		<property name="Delay" value=".5"/> <!-- obsolete if rounds per minute exists -->
 		<property name="Magazine_items" value="ammo762mmBulletBall,ammo762mmBulletHP,ammo762mmBulletAP"/>
-		<property name="Reload_time" value="2.66"/>
+		<property name="Reload_time" value="2.44"/>
 		<property name="Sound_start" value="sniperrifle_fire"/>
 		<property name="Sound_repeat" value=""/>
 		<property name="Sound_end" value=""/>
@@ -3396,10 +3396,10 @@ Mesh files no longer used:
 	</property>
 
 	<effect_group name="gunHuntingRifle">
-		<passive_effect name="MaxRange" operation="base_set" value="150"/>
+		<passive_effect name="MaxRange" operation="base_set" value="200"/>
 		<passive_effect name="DamageFalloffRange" operation="base_set" value="70"/>
 		<passive_effect name="DamageFalloffRange" operation="perc_add" value="-.2,.2"/> <!-- random effective rng -->
-		<passive_effect name="EntityDamage" operation="base_add" value="15"/>
+		<passive_effect name="EntityDamage" operation="base_add" value="18"/>
 
 		<passive_effect name="RoundsPerMinute" operation="base_set" value="120"/>
 		<passive_effect name="BurstRoundCount" operation="base_set" value="1"/>
@@ -3487,15 +3487,15 @@ Mesh files no longer used:
 	</property>
 
 	<effect_group name="gunMR10">
-		<passive_effect name="MaxRange" operation="base_set" value="150"/>
+		<passive_effect name="MaxRange" operation="base_set" value="200"/>
 		<passive_effect name="DamageFalloffRange" operation="base_set" value="60"/>
 		<passive_effect name="DamageFalloffRange" operation="perc_add" value="-.2,.2"/> <!-- random effective rng -->
-		<passive_effect name="EntityDamage" operation="base_add" value="8"/>
+		<passive_effect name="EntityDamage" operation="base_add" value="12"/>
 
 		<passive_effect name="RoundsPerMinute" operation="base_set" value="150"/>
 		<passive_effect name="BurstRoundCount" operation="base_set" value="1"/>
 
-		<passive_effect name="MagazineSize" operation="base_set" value="5"/>
+		<passive_effect name="MagazineSize" operation="base_set" value="6"/>
 		<passive_effect name="ReloadSpeedMultiplier" operation="base_set" value="1"/> <!-- 2.7s -->
 		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,2,3,4" tier="1,2,3,4,5,6"/>
 		<passive_effect name="ModPowerBonus" operation="perc_add" value=".10" tags="EntityDamage,BlockDamage"/>
