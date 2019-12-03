@@ -108,17 +108,19 @@ Example of using the seed (creation time) on a weapon to activate an effect
 		<item_property_overrides name="*">
 			<property name="Sound_start" value="pistol_s_fire"/>
 			<property name="Sound_end" value=""/>
+			<property name="Sound_loop" value="pistol_s_fire"/>
 		</item_property_overrides>
 
 		<item_property_overrides name="gunPistol">
 			<property name="Sound_start" value="pistol_s_fire"/>
-			<property name="BarrelOffset" value="0,0.0093,-0.0273"/>
+			<property name="BarrelOffset" value="0,0.0043,-0.0273"/>
 			<property name="BarrelScale" value="1,1,1"/>
 		</item_property_overrides>
 
 		<item_property_overrides name="gunSMG5">
 			<property name="Sound_start" value="mp5_s_fire"/>
 			<property name="Sound_end" value="silencefiller"/>
+			<property name="Sound_loop" value="mp5_s_fire"/>
 			<property name="BarrelOffset" value="0,0,0"/>
 			<property name="BarrelScale" value="1,1,1"/>
 		</item_property_overrides>
@@ -159,6 +161,7 @@ Example of using the seed (creation time) on a weapon to activate an effect
 		<item_property_overrides name="gunAK47">
 			<property name="Sound_start" value="ak47_s_fire"/>
 			<property name="Sound_end" value="silencefiller"/>
+			<property name="Sound_loop" value="ak47_s_fire"/>
 			<property name="BarrelOffset" value="-0.001,-0.0197,0.3197"/>
 			<property name="BarrelScale" value="1,1,1"/>
 		</item_property_overrides>
@@ -166,6 +169,7 @@ Example of using the seed (creation time) on a weapon to activate an effect
 		<item_property_overrides name="gunM60">
 			<property name="Sound_start" value="m60_s_fire"/>
 			<property name="Sound_end" value="silencefiller"/>
+			<property name="Sound_loop" value="m60_s_fire"/>
 			<property name="BarrelOffset" value="0,-.009,.551"/>
 		</item_property_overrides>
 
@@ -2217,7 +2221,7 @@ Use 762 ammo in smaller caliber guns. 98% chance for the gun to explode on firin
 	</item_modifier>
 
 	<!-- = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = -->
-	<!-- Quest items -->
+	<!-- Quest items : These are here so that the icons are baked into the atlas. -->
 
 	<item_modifier name="questWhiteRiverSupplies"><property name="CreativeMode" value="Test"/>
 		<property name="DescriptionKey" value="questSuppliesGroupDesc"/>

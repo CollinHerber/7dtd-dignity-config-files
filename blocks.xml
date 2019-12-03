@@ -183,7 +183,6 @@ tbnsew:
 	<property name="SortOrder1" value="d0k0"/>
 	<property name="SortOrder2" value="0050"/>
 	<property name="DisplayType" value="blockTerrainFertile"/>
-	<property name="DescriptionKey" value="terrainBlockGroupDesc"/>
 </block>
 
 <block name="terrForestGround">
@@ -277,6 +276,7 @@ tbnsew:
 	<property name="Texture" value="185,184,184,184,184,184"/>
 	<property name="ImposterExclude" value="true"/>
 	<property name="Map.Color" value="107,78,57"/>
+	<property name="DescriptionKey" value="terrainBlockGroupDesc"/>
 </block>
 
 <block name="terrSnow">
@@ -309,7 +309,7 @@ tbnsew:
 </block>
 
 <block name="terrTopSoil">
-	<property name="Extends" value="terrDirt"/>
+	<property name="Extends" value="terrDirt" param1="DescriptionKey"/>
 	<property name="Texture" value="10"/>
 	<property name="CustomIcon" value="terrForestGround"/>
 	<property name="CreativeMode" value="Player"/>
@@ -9310,7 +9310,7 @@ group desc for stuff like metal siding
 </block>
 
 <block name="metalTrussingSCTR">
-	<property name="Extends" value="metalTrussingBlock" param1="DescriptionKey"/>
+	<property name="Extends" value="metalTrussingBlock"/>
 	<property name="Model" value="trussing_uncentered"/>
 	<property name="SortOrder2" value="0705"/> <!-- SortShape -->
 	<drop event="Fall" count="0" prob="0"/>
@@ -12617,6 +12617,7 @@ NOT the TextureNumber.
 
 <block name="metalRivetSheet">
 	<property name="DisplayType" value="blockHardened"/>
+	<property name="DescriptionKey" value="scrapIronGroupDesc"/>
 	<property name="Material" value="Mmetal_hard"/>
 	<property name="Shape" value="New"/>
 	<property name="Model" value="billboard"/> <!-- <property name="HandleFace" value="South"/> -->
@@ -12918,7 +12919,8 @@ NOT the TextureNumber.
 </block>
 
 <block name="treePlantedOak1m">
-	<property name="Extends" value="treeMasterGrowing" param1="CustomIcon,DescriptionKey,Harvest"/>
+	<property name="Extends" value="treeMasterGrowing" param1="CustomIcon,Harvest"/>
+	<property name="DescriptionKey" value="treePlantedSeed1mDesc"/>
 	<property name="CreativeMode" value="Player"/>
 	<property name="MaxDamage" value="10"/>
 	<property name="Material" value="Mplants"/>
@@ -13187,7 +13189,8 @@ NOT the TextureNumber.
 </block>
 
 <block name="treePlantedMountainPine1m">
-	<property name="Extends" value="treeMasterGrowing" param1="CustomIcon,DescriptionKey,Harvest"/>
+	<property name="Extends" value="treeMasterGrowing" param1="CustomIcon,Harvest"/>
+	<property name="DescriptionKey" value="treePlantedSeed1mDesc"/>
 	<property name="CreativeMode" value="Player"/>
 	<property name="MaxDamage" value="10"/>
 	<property name="Material" value="Mplants"/>
@@ -13864,6 +13867,7 @@ NOT the TextureNumber.
 
 <block name="plantedMushroom3HarvestPlayer">
 	<property name="Extends" value="plantedMushroom3Harvest"/>
+	<property name="DescriptionKey" value="plantedMushroom3HarvestDesc"/>
 	<property name="CustomIcon" value="plantedMushroom3Harvest"/>
 	<property name="CreativeMode" value="None"/>
 	<drop event="Harvest" name="foodCropMushrooms" count="1" tag="cropHarvest"/>
@@ -13910,6 +13914,7 @@ NOT the TextureNumber.
 
 <block name="plantedYucca3HarvestPlayer">
 	<property name="Extends" value="plantedYucca3Harvest"/>
+	<property name="DescriptionKey" value="plantedYucca3HarvestDesc"/>
 	<property name="CustomIcon" value="plantedYucca1"/>
 	<property name="CreativeMode" value="None"/>
 	<drop event="Harvest" name="foodCropYuccaFruit" count="1" tag="cropHarvest"/>
@@ -13953,6 +13958,7 @@ NOT the TextureNumber.
 
 <block name="plantedCotton3HarvestPlayer">
 	<property name="Extends" value="plantedCotton3Harvest"/>
+	<property name="DescriptionKey" value="plantedCotton3HarvestDesc"/>
 	<property name="CustomIcon" value="plantedCotton1"/>
 	<property name="CreativeMode" value="None"/>
 	<drop event="Harvest" name="resourceCropCottonPlant" count="1" tag="cropHarvest"/>
@@ -13996,6 +14002,7 @@ NOT the TextureNumber.
 
 <block name="plantedCoffee3HarvestPlayer">
 	<property name="Extends" value="plantedCoffee3Harvest"/>
+	<property name="DescriptionKey" value="plantedCoffee3HarvestDesc"/>
 	<property name="CustomIcon" value="plantedCoffee1"/>
 	<property name="CreativeMode" value="None"/>
 	<drop event="Harvest" name="resourceCropCoffeeBeans" count="1" tag="cropHarvest"/>
@@ -14039,6 +14046,7 @@ NOT the TextureNumber.
 
 <block name="plantedGoldenrod3HarvestPlayer">
 	<property name="Extends" value="plantedGoldenrod3Harvest"/>
+	<property name="DescriptionKey" value="plantedGoldenrod3HarvestDesc"/>
 	<property name="CustomIcon" value="plantedGoldenrod1"/>
 	<property name="CreativeMode" value="None"/>
 	<drop event="Harvest" name="resourceCropGoldenrodPlant" count="1" tag="cropHarvest"/>
@@ -14086,6 +14094,7 @@ NOT the TextureNumber.
 
 <block name="plantedAloe3HarvestPlayer">
 	<property name="Extends" value="plantedAloe3Harvest"/>
+	<property name="DescriptionKey" value="plantedAloe3HarvestDesc"/>
 	<property name="CustomIcon" value="plantedAloe1"/>
 	<property name="CreativeMode" value="None"/>
 	<drop event="Harvest" name="resourceCropAloeLeaf" count="1" tag="cropHarvest"/>
@@ -14131,6 +14140,7 @@ NOT the TextureNumber.
 
 <block name="plantedBlueberry3HarvestPlayer">
 	<property name="Extends" value="plantedBlueberry3Harvest"/>
+	<property name="DescriptionKey" value="plantedBlueberry3HarvestDesc"/>
 	<property name="CustomIcon" value="plantedBlueberry1"/>
 	<property name="CreativeMode" value="None"/>
 	<drop event="Harvest" name="foodCropBlueberries" count="1" tag="cropHarvest"/>
@@ -14176,6 +14186,7 @@ NOT the TextureNumber.
 
 <block name="plantedPotato3HarvestPlayer">
 	<property name="Extends" value="plantedPotato3Harvest"/>
+	<property name="DescriptionKey" value="plantedPotato3HarvestDesc"/>
 	<property name="CustomIcon" value="plantedPotato1"/>
 	<property name="CreativeMode" value="None"/>
 	<drop event="Harvest" name="foodCropPotato" count="1" tag="cropHarvest"/>
@@ -14218,6 +14229,7 @@ NOT the TextureNumber.
 
 <block name="plantedChrysanthemum3HarvestPlayer">
 	<property name="Extends" value="plantedChrysanthemum3Harvest"/>
+	<property name="DescriptionKey" value="plantedChrysanthemum3HarvestDesc"/>
 	<property name="CustomIcon" value="plantedChrysanthemum1"/>
 	<property name="CreativeMode" value="None"/>
 	<drop event="Harvest" name="resourceCropChrysanthemumPlant" count="1" tag="cropHarvest"/>
@@ -14274,6 +14286,7 @@ NOT the TextureNumber.
 
 <block name="plantedCorn3HarvestPlayer">
 	<property name="Extends" value="plantedCorn3Harvest"/>
+	<property name="DescriptionKey" value="plantedCorn3HarvestDesc"/>
 	<property name="CustomIcon" value="plantedCorn1"/>
 	<property name="CreativeMode" value="None"/>
 	<drop event="Harvest" name="foodCropCorn" count="1" tag="cropHarvest"/>
@@ -14282,6 +14295,7 @@ NOT the TextureNumber.
 
 <block name="plantedCorn2Deco"> <!-- stage 2, non-growing deco block for POI -->
 	<property name="Extends" value="plantedCorn3Harvest"/>
+	<property name="DescriptionKey" value="plantedCorn3HarvestDesc"/>
 	<property name="DisplayInfo" value="Description"/>
 	<property name="CustomIcon" value="plantedCorn2"/>
 	<property name="CreativeMode" value="Dev"/>
@@ -14359,6 +14373,7 @@ NOT the TextureNumber.
 
 <block name="plantedGraceCorn3HarvestPlayer">
 	<property name="Extends" value="plantedGraceCorn3Harvest"/>
+	<property name="DescriptionKey" value="plantedGraceCorn3HarvestDesc"/>
 	<property name="CustomIcon" value="plantedCorn1"/>
 	<property name="CreativeMode" value="None"/>
 	<drop event="Harvest" name="foodCropGraceCorn" count="1" tag="cropHarvest"/>
@@ -14404,6 +14419,7 @@ NOT the TextureNumber.
 
 <block name="plantedHop3HarvestPlayer">
 	<property name="Extends" value="plantedHop3Harvest"/>
+	<property name="DescriptionKey" value="plantedHop3HarvestDesc"/>
 	<property name="CustomIcon" value="plantedHop1"/>
 	<property name="CreativeMode" value="None"/>
 	<drop event="Harvest" name="resourceCropHopsFlower" count="1" tag="cropHarvest"/>
@@ -14438,6 +14454,7 @@ NOT the TextureNumber.
 
 <block name="plantedSnowberry3HarvestPlayer">
 	<property name="Extends" value="plantedSnowberry3Harvest"/>
+	<property name="DescriptionKey" value="plantedSnowberry3HarvestDesc"/>
 	<property name="CustomIcon" value="plantedSnowberry1"/>
 	<property name="CreativeMode" value="None"/>
 	<drop event="Harvest" name="resourceCropSnowberryPlant" count="1" tag="cropHarvest"/>
@@ -14484,6 +14501,7 @@ NOT the TextureNumber.
 
 <block name="plantedPumpkin3HarvestPlayer">
 	<property name="Extends" value="plantedPumpkin3Harvest"/>
+	<property name="DescriptionKey" value="plantedPumpkin3HarvestDesc"/>
 	<property name="CustomIcon" value="plantedPumpkin1"/>
 	<property name="CreativeMode" value="None"/>
 	<drop event="Harvest" name="foodCropPumpkin" count="1" tag="cropHarvest"/>
@@ -15968,7 +15986,7 @@ NOT the TextureNumber.
 	<property name="FilterTags" value="floot"/>
 </block>
 
-<block name="treasureChest"> <!-- do not rename -->
+<block name="treasureChest"> <!-- do not rename, used for treasure_taylor etc -->
 	<property name="Class" value="Loot"/>
 	<property name="CustomIcon" value="cntChest01"/>
 	<property name="Material" value="MwoodReinforced"/>
@@ -16485,7 +16503,8 @@ NOT the TextureNumber.
 </block>
 
 <block name="cntRetroFridgeRandomLootHelper">
-	<property name="Extends" value="cntRetroFridgeVer1Closed" param1="DescriptionKey,MultiBlockDim,Class,LootList"/>
+	<property name="Extends" value="cntRetroFridgeVer1Closed" param1="MultiBlockDim,Class,LootList"/>
+	<property name="DescriptionKey" value="cntFridgeRandomLootHelperDesc"/>
 	<property name="CustomIcon" value="cntRetroFridgeVer1Closed"/> <property name="CustomIconTint" value="ff8080"/>
 	<property name="CreativeMode" value="Dev"/>
 	<property name="FilterTags" value="floot,ffurniture,fdesign"/>
@@ -16505,7 +16524,8 @@ NOT the TextureNumber.
 </block>
 
 <block name="cntFridgeStainlessSteelRandomLootHelper">
-	<property name="Extends" value="cntFridgeStainlessSteel" param1="DescriptionKey,MultiBlockDim,Class,LootList"/>
+	<property name="Extends" value="cntFridgeStainlessSteel" param1="MultiBlockDim,Class,LootList"/>
+	<property name="DescriptionKey" value="cntFridgeRandomLootHelperDesc"/>
 	<property name="CustomIcon" value="cntFridgeStainlessSteel"/> <property name="CustomIconTint" value="ff8080"/>
 	<property name="CreativeMode" value="Dev"/>
 	<property name="DisplayInfo" value="Name"/>
@@ -17677,6 +17697,7 @@ NOT the TextureNumber.
 	<drop event="Harvest" name="resourceCloth" count="6" tag="allHarvest"/>
 	<drop event="Destroy" count="0"/>
 	<property name="FilterTags" value="floot"/>
+	<property name="DescriptionKey" value="cntWeaponsBagSmallDesc"/>
 </block>
 
 <block name="cntWeaponsBagLarge">
@@ -17753,6 +17774,7 @@ NOT the TextureNumber.
 	<drop event="Destroy" name="resourceScrapPolymers" count="1,4"/>
 	<drop event="Harvest" name="resourceAcid" prob=".05" count="1" tag="WasteTreasuresAcidHarvest"/>
 	<property name="FilterTags" value="floot"/>
+	<property name="DescriptionKey" value="cntLootPileGroupDesc"/>
 </block>
 
 <block name="cntMedicLootPileB">
@@ -22090,10 +22112,10 @@ NOT the TextureNumber.
 	<property name="LootList" value="103"/>
 </block>
 
-<block name="cntQuestLootBox">
+<block name="cntQuestLootBox"> <!-- deprecated -->
 	<property name="Extends" value="cntChest01"/>
 	<property name="CustomIcon" value="cntChest01"/> <property name="CustomIconTint" value="80ff80"/>
-	<property name="CreativeMode" value="Dev"/>
+	<property name="CreativeMode" value="None"/>
 	<property name="LootList" value="34"/>
 </block>
 
@@ -22481,6 +22503,7 @@ NOT the TextureNumber.
 
 <block name="endTableLamp">
 	<property name="Extends" value="porchLight01" param1="HandleFace"/>
+	<property name="DescriptionKey" value="furnitureGroupDesc"/>
 	<property name="Stacknumber" value="3"/>
 	<property name="Path" value="solid"/>
 	<property name="Model" value="Entities/Lighting/end_table_lightPrefab"/>
@@ -26439,7 +26462,7 @@ NOT the TextureNumber.
 </block>
 
 <block name="looseBoardsTrapPlate1x1">
-	<property name="Extends" value="looseBoardsTrapBlock1x1" param1="CustomIcon,DescriptionKey,Path"/>
+	<property name="Extends" value="looseBoardsTrapBlock1x1" param1="CustomIcon,Path"/>
 	<property name="Model" value="Plate"/>
 	<property name="SortOrder2" value="0150"/> <!-- SortShape -->
 	<!-- <property name="CustomIcon" value="looseBoardsTrapPlate1x1"/> -->

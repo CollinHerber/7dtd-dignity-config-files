@@ -205,11 +205,20 @@
 		-->
 		<passive_effect name="PlayerExpGain" operation="perc_add" value="5" tags="Upgrading"/>
 
-		<passive_effect name="ExpDeficitPerDeathPercentage" operation="base_set" value=".25"/>
-		<passive_effect name="ExpDeficitMaxPercentage" operation="base_set" value=".5"/>
-
 		<triggered_effect trigger="onSelfEnteredGame" action="AddBuff" target="self" buff="buffStatusCheck01,buffStatusCheck02"/>
 		<triggered_effect trigger="onSelfRespawn" action="AddBuff" target="self" buff="buffStatusCheck01,buffStatusCheck02,buffPerkAbilityUpdate,buffNearDeathTraumaTrigger"/>
+	</effect_group>
+
+	<effect_group>
+		<requirement name="PlayerLevel" operation="LT" value="300"/>
+			<passive_effect name="ExpDeficitPerDeathPercentage" operation="base_set" value=".25"/>
+			<passive_effect name="ExpDeficitMaxPercentage" operation="base_set" value=".5"/>
+	</effect_group>
+
+	<effect_group>
+		<requirement name="PlayerLevel" operation="GTE" value="300"/>
+			<passive_effect name="ExpDeficitPerDeathPercentage" operation="base_set" value="0"/>
+			<passive_effect name="ExpDeficitMaxPercentage" operation="base_set" value="0"/>
 	</effect_group>
 </entity_class>
 
@@ -411,7 +420,7 @@
 	<property name="HandItem" value="meleeHandZombieCop"/>
 	<property name="JumpMaxDistance" value="4.6, 5"/>
 
-	<property name="ExperienceGain" value="1400"/> <!-- XP strong -->
+	<property name="ExperienceGain" value="1200"/> <!-- XP strong -->
 	<property name="LootDropProb" value=".03"/> <!-- Feral -->
 	<property name="LootDropEntityClass" value="EntityLootContainerStrong"/>
 
@@ -447,7 +456,7 @@
 
 	<!-- Gameplay -->
 	<!-- <property name="Buffs" value="zombieRadiatedBuff80"/> -->
-	<property name="ExperienceGain" value="1800"/> <!-- XP strong radiated -->
+	<property name="ExperienceGain" value="1500"/> <!-- XP strong radiated -->
 	<property name="LootDropProb" value=".03"/> <!-- Radiated -->
 
 	<effect_group name="Base Effects">
@@ -522,7 +531,7 @@
 
 	<property name="HandItem" value="meleeHandZombieFeral"/>
 
-	<property name="ExperienceGain" value="950"/> <!-- XP grunt feral -->
+	<property name="ExperienceGain" value="750"/> <!-- XP grunt feral -->
 	<property name="LootDropProb" value=".03"/> <!-- Feral -->
 
 	<effect_group name="Base Effects">
@@ -571,19 +580,16 @@
 	<property name="HasDeathAnim" value="true"/>
 
 	<!-- Gameplay -->
-	<property name="MoveSpeed" value="0.85"/>
+	<property name="MoveSpeed" value="0.75"/>
 	<property name="MoveSpeedAggro" value=".6, 1.3"/>
 
 	<property name="HandItem" value="meleeHandZombieFootballPlayer"/>
 
-        <property name="LootDropProb" value=".05"/> <!-- Feral -->
-	<property name="LootDropEntityClass" value="EntityLootContainerStrong"/>
-
-	<property name="ExperienceGain" value="800"/> <!-- XP grunt feral -->
+	<property name="ExperienceGain" value="750"/> <!-- XP grunt feral -->
 	<effect_group name="Base Effects">
-		<passive_effect name="HealthMax" operation="base_set" value="300"/>
+		<passive_effect name="HealthMax" operation="base_set" value="250"/>
 		<passive_effect name="HealthMax" operation="perc_set" value="1"/> <!-- Zombie HP scale -->
-		<passive_effect name="PhysicalDamageResist" operation="base_set" value="25"/> <!-- base_set does not work here. Because reasons -->
+		<passive_effect name="PhysicalDamageResist" operation="base_set" value="20"/> <!-- base_set does not work here. Because reasons -->
 	</effect_group>
 </entity_class>
 

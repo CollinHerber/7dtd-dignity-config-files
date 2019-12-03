@@ -1101,6 +1101,8 @@
 
 						<!--videooption name="FieldOfView" type="ComboBoxInt" value_increment="2" value_wrap="false" /-->
 
+						<videooption name="TerrainQuality" type="ComboBoxList&lt;System.String&gt;" values="Lowest,Low,Medium,High,Ultra" localization_prefix="xuiOptionsVideoPresets" value_wrap="false" />
+						
 						<videooption name="TreeQuality" type="ComboBoxList&lt;System.String&gt;" values="Lowest,Low,Medium,High,Ultra" localization_prefix="xuiOptionsVideoPresets" value_wrap="false" />
 
 						<videooption name="GrassDistance" type="ComboBoxList&lt;System.String&gt;" values="Near,Normal,Far" localization_prefix="xuiOptionsVideoDistance" value_wrap="false" />
@@ -1120,8 +1122,6 @@
 						<videooption name="SSReflections" type="ComboBoxList&lt;System.String&gt;" values="Off,Low,Medium,High" localization_prefix="xuiOptionsVideoPresets" value_wrap="false" />
 
 						<videooption name="SunShafts" type="ComboBoxBool" localization_prefix="xuiComboOnOff" />
-
-						<rect />
 
 						<videooption name="StreamingMipmapsEnabled" type="ComboBoxBool" localization_prefix="xuiComboOnOff" />
 						

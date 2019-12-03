@@ -2089,6 +2089,7 @@ The overall plan for loot distribution:
 	<item name="speakerSchematic"/>
 	<item name="spotlightPlayerSchematic"/>
 	<item name="switchSchematic"/>
+	<item name="generatorbankSchematic"/>
 	<item name="batterybankSchematic"/>
 	<item name="electrictimerrelaySchematic"/>
 </lootgroup>

@@ -3462,11 +3462,14 @@
 
       <panel name="params" rows="6" cols="2" width="300" height="300" pos="10,-10" depth="7" disableautobackground="true" >
         <label text_key="xuiLightPropType" width ="50" height="30" on_hover="true" tooltip_key="xuiLightPropTypeTip" pos="0,0" />
-        <combobox name="cbxLightType" width ="100" type="ComboBoxList`1[[UnityEngine.LightType,UnityEngine]]" pos="100,0"/>
+        <!--<combobox name="cbxLightType" width ="100" type="ComboBoxList`1[[UnityEngine.LightType,UnityEngine]]" pos="100,0"/>-->
+        <combobox name="cbxLightType" width ="100" type="ComboBoxList`1[System.String]" pos="100,0"/>
         <label text_key="xuiLightPropState" width ="60" height="30" on_hover="true" tooltip_key="xuiLightPropStateTip" pos ="0,-50" />
-        <combobox name="cbxLightState" width ="100" type="ComboBoxEnum`1[LightStateType]" pos="100,-50" />
+        <!--<combobox name="cbxLightState" width ="100" type="ComboBoxEnum`1[LightStateType]" pos="100,-50" />-->
+        <combobox name="cbxLightState" width ="100" type="ComboBoxList`1[System.String]" pos="100,-50" />
         <label text_key="xuiLightPropShadow" width ="80" height="30" on_hover="true" tooltip_key="xuiLightPropShadowTip" pos="0,-100" />
-        <combobox name="cbxLightShadow" width ="100" type="ComboBoxEnum`1[[UnityEngine.LightShadows,UnityEngine]]" pos="100,-100" />
+        <!--<combobox name="cbxLightShadow" width ="100" type="ComboBoxEnum`1[[UnityEngine.LightShadows,UnityEngine]]" pos="100,-100" />-->
+        <combobox name="cbxLightShadow" width ="100" type="ComboBoxList`1[System.String]" pos="100,-100" />
         <label text_key="xuiLightPropColorPreset" width ="70" height="30" on_hover="true" tooltip_key="xuiLightPropColorPresetTip" pos="0,-150" />
         <combobox name="cbxPresets" width ="100" type="ComboBoxList`1[System.String]" pos="100,-150" />
         <label text_key="xuiLightPropRange" width ="60" height="30" on_hover="true" tooltip_key="xuiLightPropRangeTip" pos="0,-200" />

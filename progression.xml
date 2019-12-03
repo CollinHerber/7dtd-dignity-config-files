@@ -1,16 +1,17 @@
 <!-- Groups: firearms, weapons, tools, clothing, scavenging, health, crafting !-->
 
 <progression>
-<!-- A17 intended: 
+<!-- A17 intended:
 <level max_level="300" exp_to_level="11931" experience_multiplier="1.0149" skill_points_per_level="1"> -->
-<level max_level="300" exp_to_level="10000" experience_multiplier="1.04" skill_points_per_level="1" clamp_exp_cost_at_level="60">
+<level max_level="300" exp_to_level="10000" experience_multiplier="1.05" skill_points_per_level="1" clamp_exp_cost_at_level="60">
+<!-- Note: max_level is referenced in buffNearDeathTraumaXXX and entityclasses
 
-<!-- XP to complete the current level will cap out at 2^32/2. (lvl 252 in A18) -->
+	XP to complete the current level will cap out at 2^32/2. (lvl 252 in A18)
 
-<!-- A15: 8000 XP for level 1 and 134k for level 199, total cumulative of 9MXP; XPRequired = exp_to_level * experience_multiplier ^ level -->
-<!-- A16: 8300 XP for level 1, total cumulative of 11MXP -->
-<!-- A17: 11931 XP for level 1, total cumulative of 67MXP -->
-<!-- A18: 10000 XP for level 1, total cumulative of 4.78E+11 XP at lvl 300 -->
+	A15: 8000 XP for level 1 and 134k for level 199, total cumulative of 9MXP; XPRequired = exp_to_level * experience_multiplier ^ level
+	A16: 8300 XP for level 1, total cumulative of 11MXP
+	A17: 11931 XP for level 1, total cumulative of 67MXP
+	A18: 10000 XP for level 1, total cumulative of 11.1MXP at lvl 100, Some 48.5MXP for lvl 300 -->
 </level>
 
 <attributes min_level="1" max_level="10" base_skill_point_cost="1" cost_multiplier_per_level="1.14"> <!--values here are simply base values for any attribute that doesn't override it. -->
@@ -1230,52 +1231,14 @@
 				<passive_effect name="EntityDamage" operation="perc_add" level="1,5" value=".1,.5"/>
 		</effect_group>
 
-		<!-- primary attacks on blades have a 20% chance for 1 stack of bleeding if max is not reached. This is rolled into the perk %. -->
-		<effect_group name="T0 prim">
-			<requirement name="ProgressionLevel" progression_name="perkDeepCuts" operation="Equals" value="0"/>
-			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="20"/>
+		<effect_group name="primary, always">
 			<requirement name="CVarCompare" cvar="bleedCounter" operation="LT" value="@$maxBleedCounter" target="other"/>
-			<requirement name="HoldingItemHasTags" tags="perkDeepCuts"/>
-				<triggered_effect trigger="onSelfPrimaryActionRayHit" action="ModifyCVar" target="other" cvar="bleedCounter" operation="add" value="1"/>
-		</effect_group>
-		<effect_group name="T1 prim">
-			<requirement name="ProgressionLevel" progression_name="perkDeepCuts" operation="Equals" value="1"/>
-			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="30"/>
-			<requirement name="CVarCompare" cvar="bleedCounter" operation="LT" value="@$maxBleedCounter" target="other"/>
-			<requirement name="HoldingItemHasTags" tags="perkDeepCuts"/>
-				<triggered_effect trigger="onSelfPrimaryActionRayHit" action="ModifyCVar" target="other" cvar="bleedCounter" operation="add" value="1"/>
-		</effect_group>
-		<effect_group name="T2 prim">
-			<requirement name="ProgressionLevel" progression_name="perkDeepCuts" operation="Equals" value="2"/>
-			<requirement name="CVarCompare" cvar="bleedCounter" operation="LT" value="@$maxBleedCounter" target="other"/>
-			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="40"/>
-			<requirement name="HoldingItemHasTags" tags="perkDeepCuts"/>
-				<triggered_effect trigger="onSelfPrimaryActionRayHit" action="ModifyCVar" target="other" cvar="bleedCounter" operation="add" value="1"/>
-		</effect_group>
-		<effect_group name="T3 prim">
-			<requirement name="ProgressionLevel" progression_name="perkDeepCuts" operation="Equals" value="3"/>
-			<requirement name="CVarCompare" cvar="bleedCounter" operation="LT" value="@$maxBleedCounter" target="other"/>
-			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="50"/>
-			<requirement name="HoldingItemHasTags" tags="perkDeepCuts"/>
-				<triggered_effect trigger="onSelfPrimaryActionRayHit" action="ModifyCVar" target="other" cvar="bleedCounter" operation="add" value="1"/>
-		</effect_group>
-		<effect_group name="T4 prim">
-			<requirement name="ProgressionLevel" progression_name="perkDeepCuts" operation="Equals" value="4"/>
-			<requirement name="CVarCompare" cvar="bleedCounter" operation="LT" value="@$maxBleedCounter" target="other"/>
-			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="60"/>
-			<requirement name="HoldingItemHasTags" tags="perkDeepCuts"/>
-				<triggered_effect trigger="onSelfPrimaryActionRayHit" action="ModifyCVar" target="other" cvar="bleedCounter" operation="add" value="1"/>
-		</effect_group>
-		<effect_group name="T5 prim">
-			<requirement name="ProgressionLevel" progression_name="perkDeepCuts" operation="Equals" value="5"/>
-			<requirement name="CVarCompare" cvar="bleedCounter" operation="LT" value="@$maxBleedCounter" target="other"/>
-			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="70"/>
 			<requirement name="HoldingItemHasTags" tags="perkDeepCuts"/>
 				<triggered_effect trigger="onSelfPrimaryActionRayHit" action="ModifyCVar" target="other" cvar="bleedCounter" operation="add" value="1"/>
 		</effect_group>
 
 		<effect_group>
-			<!-- all primary attacks refresh / extend bleeding even if no stacks can be added -->
+			<!-- all attacks refresh / extend bleeding even if no stacks can be added -->
 			<requirement name="HoldingItemHasTags" tags="perkDeepCuts"/>
 			<requirement name="CVarCompare" cvar="bleedCounter" operation="GT" value="0" target="other"/>
 				<triggered_effect trigger="onSelfPrimaryActionRayHit" action="AddBuff" target="other" buff="buffInjuryBleeding"/>
@@ -1284,36 +1247,120 @@
 		<effect_group name="Secondary">
 			<requirement name="HoldingItemHasTags" tags="perkDeepCuts"/>
 
-			<!--
-				<triggered_effect trigger="onSelfSecondaryActionRayHit" action="ModifyCVar" target="other" cvar="bleedCounter" operation="set" value="@$maxBleedCounter">
-					<requirement name="CVarCompare" cvar="bleedCounter" operation="LT" value="@$maxBleedCounter" target="other"/>
-				</triggered_effect>
-			-->
-				<triggered_effect trigger="onSelfSecondaryActionRayHit" action="ModifyCVar" target="other" cvar="bleedCounter" operation="set" value="1">
-					<requirement name="ProgressionLevel" progression_name="perkDeepCuts" operation="Equals" value="0"/>
-					<requirement name="CVarCompare" cvar="bleedCounter" operation="LT" value="@$maxBleedCounter" target="other"/>
-				</triggered_effect>
 				<triggered_effect trigger="onSelfSecondaryActionRayHit" action="ModifyCVar" target="other" cvar="bleedCounter" operation="set" value="2">
-					<requirement name="ProgressionLevel" progression_name="perkDeepCuts" operation="Equals" value="1"/>
-					<requirement name="CVarCompare" cvar="bleedCounter" operation="LT" value="@$maxBleedCounter" target="other"/>
-				</triggered_effect>
-				<triggered_effect trigger="onSelfSecondaryActionRayHit" action="ModifyCVar" target="other" cvar="bleedCounter" operation="set" value="3">
-					<requirement name="ProgressionLevel" progression_name="perkDeepCuts" operation="Equals" value="2"/>
-					<requirement name="CVarCompare" cvar="bleedCounter" operation="LT" value="@$maxBleedCounter" target="other"/>
-				</triggered_effect>
-				<triggered_effect trigger="onSelfSecondaryActionRayHit" action="ModifyCVar" target="other" cvar="bleedCounter" operation="set" value="4">
-					<requirement name="ProgressionLevel" progression_name="perkDeepCuts" operation="Equals" value="3"/>
-					<requirement name="CVarCompare" cvar="bleedCounter" operation="LT" value="@$maxBleedCounter" target="other"/>
-				</triggered_effect>
-				<triggered_effect trigger="onSelfSecondaryActionRayHit" action="ModifyCVar" target="other" cvar="bleedCounter" operation="set" value="5">
-					<requirement name="ProgressionLevel" progression_name="perkDeepCuts" operation="Equals" value="4"/>
-					<requirement name="CVarCompare" cvar="bleedCounter" operation="LT" value="@$maxBleedCounter" target="other"/>
-				</triggered_effect>
-				<triggered_effect trigger="onSelfSecondaryActionRayHit" action="ModifyCVar" target="other" cvar="bleedCounter" operation="set" value="6">
-					<requirement name="ProgressionLevel" progression_name="perkDeepCuts" operation="Equals" value="5"/>
-					<requirement name="CVarCompare" cvar="bleedCounter" operation="LT" value="@$maxBleedCounter" target="other"/>
+					<requirement name="ProgressionLevel" progression_name="perkDeepCuts" operation="Equals" value="0"/>
+					<requirement name="CVarCompare" cvar="bleedCounter" operation="LT" value="2" target="other"/>
 				</triggered_effect>
 
+				<triggered_effect trigger="onSelfSecondaryActionRayHit" action="ModifyCVar" target="other" cvar="bleedCounter" operation="set" value="3">
+					<requirement name="ProgressionLevel" progression_name="perkDeepCuts" operation="Equals" value="1"/>
+					<requirement name="CVarCompare" cvar="bleedCounter" operation="Equals" value="2" target="other"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfSecondaryActionRayHit" action="ModifyCVar" target="other" cvar="bleedCounter" operation="add" value="2">
+					<requirement name="ProgressionLevel" progression_name="perkDeepCuts" operation="Equals" value="1"/>
+					<requirement name="CVarCompare" cvar="bleedCounter" operation="LT" value="2" target="other"/>
+				</triggered_effect>
+
+				<triggered_effect trigger="onSelfSecondaryActionRayHit" action="ModifyCVar" target="other" cvar="bleedCounter" operation="set" value="4">
+					<requirement name="ProgressionLevel" progression_name="perkDeepCuts" operation="Equals" value="2"/>
+					<requirement name="CVarCompare" cvar="bleedCounter" operation="GTE" value="1" target="other"/>
+					<requirement name="CVarCompare" cvar="bleedCounter" operation="LT" value="4" target="other"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfSecondaryActionRayHit" action="ModifyCVar" target="other" cvar="bleedCounter" operation="add" value="3">
+					<requirement name="ProgressionLevel" progression_name="perkDeepCuts" operation="Equals" value="2"/>
+					<requirement name="CVarCompare" cvar="bleedCounter" operation="LT" value="2" target="other"/>
+				</triggered_effect>
+
+				<triggered_effect trigger="onSelfSecondaryActionRayHit" action="ModifyCVar" target="other" cvar="bleedCounter" operation="set" value="5">
+					<requirement name="ProgressionLevel" progression_name="perkDeepCuts" operation="Equals" value="3"/>
+					<requirement name="CVarCompare" cvar="bleedCounter" operation="GTE" value="1" target="other"/>
+					<requirement name="CVarCompare" cvar="bleedCounter" operation="LT" value="5" target="other"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfSecondaryActionRayHit" action="ModifyCVar" target="other" cvar="bleedCounter" operation="add" value="4">
+					<requirement name="ProgressionLevel" progression_name="perkDeepCuts" operation="Equals" value="3"/>
+					<requirement name="CVarCompare" cvar="bleedCounter" operation="LT" value="2" target="other"/>
+				</triggered_effect>
+
+				<triggered_effect trigger="onSelfSecondaryActionRayHit" action="ModifyCVar" target="other" cvar="bleedCounter" operation="set" value="6">
+					<requirement name="ProgressionLevel" progression_name="perkDeepCuts" operation="Equals" value="4"/>
+					<requirement name="CVarCompare" cvar="bleedCounter" operation="GTE" value="2" target="other"/>
+					<requirement name="CVarCompare" cvar="bleedCounter" operation="LT" value="6" target="other"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfSecondaryActionRayHit" action="ModifyCVar" target="other" cvar="bleedCounter" operation="add" value="4">
+					<requirement name="ProgressionLevel" progression_name="perkDeepCuts" operation="Equals" value="4"/>
+					<requirement name="CVarCompare" cvar="bleedCounter" operation="LT" value="2" target="other"/>
+				</triggered_effect>
+
+				<triggered_effect trigger="onSelfSecondaryActionRayHit" action="ModifyCVar" target="other" cvar="bleedCounter" operation="set" value="7">
+					<requirement name="ProgressionLevel" progression_name="perkDeepCuts" operation="Equals" value="5"/>
+					<requirement name="CVarCompare" cvar="bleedCounter" operation="GTE" value="2" target="other"/>
+					<requirement name="CVarCompare" cvar="bleedCounter" operation="LT" value="7" target="other"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfSecondaryActionRayHit" action="ModifyCVar" target="other" cvar="bleedCounter" operation="add" value="5">
+					<requirement name="ProgressionLevel" progression_name="perkDeepCuts" operation="Equals" value="5"/>
+					<requirement name="CVarCompare" cvar="bleedCounter" operation="LT" value="2" target="other"/>
+				</triggered_effect>
+		</effect_group>
+
+		<effect_group>
+			<requirement name="HoldingItemHasTags" tags="perkDeepCuts"/>
+			<requirement name="ProgressionLevel" progression_name="perkDeepCuts" operation="GTE" value="1"/>
+			<requirement name="ProgressionLevel" progression_name="perkDeepCuts" operation="LT" value="3"/>
+			<requirement name="CVarCompare" cvar="$bleedSlowdown" operation="GT" value="-.1" target="other"/>
+				<triggered_effect trigger="onSelfPrimaryActionRayHit" action="ModifyCVar" target="other" cvar="$bleedSlowdown" operation="set" value="-.1"/>
+				<triggered_effect trigger="onSelfSecondaryActionRayHit" action="ModifyCVar" target="other" cvar="$bleedSlowdown" operation="set" value="-.1"/>
+		</effect_group>
+
+		<effect_group>
+			<requirement name="HoldingItemHasTags" tags="perkDeepCuts"/>
+			<requirement name="ProgressionLevel" progression_name="perkDeepCuts" operation="GTE" value="3"/>
+			<requirement name="ProgressionLevel" progression_name="perkDeepCuts" operation="LT" value="5"/>
+			<requirement name="CVarCompare" cvar="$bleedSlowdown" operation="GT" value="-.15" target="other"/>
+				<triggered_effect trigger="onSelfPrimaryActionRayHit" action="ModifyCVar" target="other" cvar="$bleedSlowdown" operation="set" value="-.15"/>
+				<triggered_effect trigger="onSelfSecondaryActionRayHit" action="ModifyCVar" target="other" cvar="$bleedSlowdown" operation="set" value="-.15"/>
+		</effect_group>
+
+		<effect_group>
+			<requirement name="HoldingItemHasTags" tags="perkDeepCuts"/>
+			<requirement name="ProgressionLevel" progression_name="perkDeepCuts" operation="Equals" value="5"/>
+			<requirement name="CVarCompare" cvar="$bleedSlowdown" operation="GT" value="-.2" target="other"/>
+				<triggered_effect trigger="onSelfPrimaryActionRayHit" action="ModifyCVar" target="other" cvar="$bleedSlowdown" operation="set" value="-.2"/>
+				<triggered_effect trigger="onSelfSecondaryActionRayHit" action="ModifyCVar" target="other" cvar="$bleedSlowdown" operation="set" value="-.2"/>
+		</effect_group>
+
+		<effect_group name="grazing hits T3">
+			<requirement name="HoldingItemHasTags" tags="perkDeepCuts"/>
+			<requirement name="ProgressionLevel" progression_name="perkDeepCuts" operation="Equals" value="3"/>
+			<requirement name="CVarCompare" cvar="bleedCounter" operation="LT" value="5" target="other"/>
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="40"/>
+				<triggered_effect trigger="onSelfPrimaryActionGrazeHit" action="ModifyCVar" target="other" cvar="bleedCounter" operation="add" value="1"/>
+				<triggered_effect trigger="onSelfSecondaryActionGrazeHit" action="ModifyCVar" target="other" cvar="bleedCounter" operation="add" value="1"/>
+				<triggered_effect trigger="onSelfPrimaryActionGrazeHit" action="AddBuff" target="other" buff="buffInjuryBleeding"/>
+				<triggered_effect trigger="onSelfSecondaryActionGrazeHit" action="AddBuff" target="other" buff="buffInjuryBleeding"/>
+		</effect_group>
+		<effect_group name="grazing hits T4">
+			<requirement name="HoldingItemHasTags" tags="perkDeepCuts"/>
+			<requirement name="ProgressionLevel" progression_name="perkDeepCuts" operation="Equals" value="4"/>
+			<requirement name="CVarCompare" cvar="bleedCounter" operation="LT" value="6" target="other"/>
+			<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="70"/>
+				<triggered_effect trigger="onSelfPrimaryActionGrazeHit" action="ModifyCVar" target="other" cvar="bleedCounter" operation="add" value="1"/>
+				<triggered_effect trigger="onSelfSecondaryActionGrazeHit" action="ModifyCVar" target="other" cvar="bleedCounter" operation="add" value="1"/>
+				<triggered_effect trigger="onSelfPrimaryActionGrazeHit" action="AddBuff" target="other" buff="buffInjuryBleeding"/>
+				<triggered_effect trigger="onSelfSecondaryActionGrazeHit" action="AddBuff" target="other" buff="buffInjuryBleeding"/>
+		</effect_group>
+		<effect_group name="grazing hits T5">
+			<requirement name="HoldingItemHasTags" tags="perkDeepCuts"/>
+			<requirement name="ProgressionLevel" progression_name="perkDeepCuts" operation="Equals" value="5"/>
+			<requirement name="CVarCompare" cvar="bleedCounter" operation="LT" value="7" target="other"/>
+				<triggered_effect trigger="onSelfPrimaryActionGrazeHit" action="ModifyCVar" target="other" cvar="bleedCounter" operation="add" value="1"/>
+				<triggered_effect trigger="onSelfSecondaryActionGrazeHit" action="ModifyCVar" target="other" cvar="bleedCounter" operation="add" value="1"/>
+				<triggered_effect trigger="onSelfPrimaryActionGrazeHit" action="AddBuff" target="other" buff="buffInjuryBleeding"/>
+				<triggered_effect trigger="onSelfSecondaryActionGrazeHit" action="AddBuff" target="other" buff="buffInjuryBleeding"/>
+		</effect_group>
+
+		<effect_group>
+			<requirement name="HoldingItemHasTags" tags="perkDeepCuts"/>
+				<triggered_effect trigger="onSelfPrimaryActionRayHit" action="AddBuff" target="other" buff="buffInjuryBleeding"/>
 				<triggered_effect trigger="onSelfSecondaryActionRayHit" action="AddBuff" target="other" buff="buffInjuryBleeding"/>
 		</effect_group>
 	</perk>
@@ -1628,7 +1675,7 @@
 			<passive_effect name="CraftingTime" operation="perc_add" level="2,5" value="-0.2" tags="workbenchCrafting,cementMixerCrafting,tableSawCrafting"/>
 			<passive_effect name="RecipeTagUnlocked" operation="base_set" level="3,5" value="1" tags="generatorbank,electricwirerelay,switch,ceilingLight01_player,industrialLight01_player,industrialLight02_player,armorMiningHelmet,spotlightPlayer,speaker,pressureplate,pressureplateLong,dartTrap,electrictimerrelay,motionsensor,tripwirepost,electricfencepost,bladeTrap"/>
 			<passive_effect name="ElectricalTrapXP" operation="base_set" level="3,4,5" value="0.2,0.35,0.5"/>
-			<passive_effect name="RecipeTagUnlocked" operation="base_set" level="4,5" value="1" tags="shotgunTurret,gunToolNailgun,meleeToolAuger,meleeToolChainsaw,garageDoorMetal_v1Powered,garageDoorIndustrial_Powered,metalReinforcedWoodDrawBridgePowered,vaultHatch_v3_Powered,vaultDoor03_Powered"/>
+			<passive_effect name="RecipeTagUnlocked" operation="base_set" level="4,5" value="1" tags="batterybank,shotgunTurret,gunToolNailgun,meleeToolAuger,meleeToolChainsaw,garageDoorMetal_v1Powered,garageDoorIndustrial_Powered,metalReinforcedWoodDrawBridgePowered,vaultHatch_v3_Powered,vaultDoor03_Powered"/>
 			<passive_effect name="RecipeTagUnlocked" operation="base_set" level="5" value="1" tags="toolForgeCrucible,autoTurret"/>
 
 			<effect_description level="1" desc_key="perkAdvancedEngineeringRank1Desc" long_desc_key="perkAdvancedEngineeringRank1LongDesc"/>
@@ -1678,7 +1725,7 @@
 			<passive_effect name="CraftingTime" operation="perc_add" level="1,5" value="-0.2" tags="chemStationCrafting"/>
 			<passive_effect name="RecipeTagUnlocked" operation="base_set" level="2,5" value="1" tags="medicalFirstAidBandage,medicalPlasterCast,mineCookingPot,rScrapIronPlateMine,ammoGasCan,ammoGasCanBundle,resourceOil"/>
 			<passive_effect name="RecipeTagUnlocked" operation="base_set" level="3,5" value="1" tags="medicalFirstAidKit,drugSteroids,resourceMilitaryFiber,mineHubcap"/>
-			<passive_effect name="RecipeTagUnlocked" operation="base_set" level="4,5" value="1" tags="drugAntibiotics,batterybank,carBattery,mineAirFilter"/>
+			<passive_effect name="RecipeTagUnlocked" operation="base_set" level="4,5" value="1" tags="drugAntibiotics,carBattery,mineAirFilter"/>
 			<passive_effect name="RecipeTagUnlocked" operation="base_set" level="5" value="1" tags="drugFortBites,drugRecog"/>
 
 			<effect_description level="1" desc_key="perkYeahScienceRank1Desc" long_desc_key="perkYeahScienceRank1LongDesc"/>
